@@ -1,239 +1,459 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#5d00ff">
-    <meta name="robots" content="noindex">
-    <title>Download KCB Mobile</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        --kcb-blue: #002c4d;
-        --kcb-green: #84bd00;
-        --purple-deep: #5800ec;
-        --purple: #7417ff;
-        --purple-light: #a72bf4;
-        --white: #ffffff;
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5d00ff">
+  <meta name="robots" content="noindex">
+
+  <title>Download KCB Mobile</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --kcb-blue: #002c4d;
+      --kcb-green: #84bd00;
+
+      --purple-deep: #5800ec;
+      --purple: #7417ff;
+      --purple-light: #a72bf4;
+
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+
+      color: var(--white);
+
+      /* Clean gradient only — no background shapes */
+      background: linear-gradient(
+        135deg,
+        var(--purple-deep) 0%,
+        var(--purple) 50%,
+        var(--purple-light) 100%
+      );
+
+      font-family: Outfit, Arial, sans-serif;
+    }
+
+    main {
+      position: relative;
+      display: grid;
+
+      width: min(100%, 1240px);
+      min-height: 100vh;
+
+      margin: 0 auto;
+
+      padding: clamp(28px, 5vw, 72px);
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(360px, 0.9fr);
+
+      align-items: center;
+
+      gap: clamp(18px, 4vw, 72px);
+    }
+
+    .content {
+      position: relative;
+      max-width: 650px;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+
+      margin-bottom: clamp(30px, 6vh, 66px);
+
+      padding: 10px 14px;
+
+      border-radius: 16px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 14px 34px rgba(32, 0, 94, 0.2);
+    }
+
+    .logo {
+      display: block;
+
+      width: clamp(170px, 18vw, 225px);
+      height: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+
+      color: #d9ff7d;
+
+      font-size: 0.86rem;
+      font-weight: 800;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+
+      margin: 0;
+
+      font-size: clamp(3.4rem, 7.8vw, 6.8rem);
+
+      font-weight: 700;
+
+      line-height: 0.92;
+
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 520px;
+
+      margin: 26px 0 34px;
+
+      color: rgba(255, 255, 255, 0.86);
+
+      font-size: clamp(1rem, 1.7vw, 1.22rem);
+
+      line-height: 1.6;
+    }
+
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .store-link {
+      display: inline-flex;
+
+      min-height: 58px;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 0 22px;
+
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+
+      color: var(--white);
+
+      font-weight: 800;
+
+      text-decoration: none;
+
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .store-link.primary {
+      border-color: var(--kcb-green);
+
+      background: var(--kcb-green);
+
+      color: #142900;
+    }
+
+    .store-link:hover,
+    .store-link:focus-visible {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 14px 28px rgba(35, 0, 100, 0.26);
+    }
+
+    .store-link:focus-visible {
+      outline: 3px solid #d9ff7d;
+
+      outline-offset: 4px;
+    }
+
+    .note {
+      margin: 20px 0 0;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      font-size: 0.86rem;
+
+      line-height: 1.5;
+    }
+
+    .phone-stage {
+      position: relative;
+
+      display: grid;
+
+      min-width: 0;
+
+      place-items: center;
+    }
+
+    .phone-crop {
+      position: relative;
+
+      width: min(44vw, 540px);
+
+      aspect-ratio: 1941 / 2814;
+
+      overflow: hidden;
+
+      filter:
+        drop-shadow(
+          0 28px 30px rgba(30, 0, 74, 0.32)
+        );
+
+      transform: rotate(3deg);
+    }
+
+    .phone {
+      position: absolute;
+
+      top: -63%;
+      left: -2.7%;
+
+      display: block;
+
+      width: 106.5%;
+      height: auto;
+    }
+
+    .redirecting .lead::after {
+      display: inline-block;
+
+      width: 0.9em;
+      height: 0.9em;
+
+      margin-left: 0.55em;
+
+      border:
+        2px solid rgba(255, 255, 255, 0.32);
+
+      border-top-color: #d9ff7d;
+
+      border-radius: 50%;
+
+      content: "";
+
+      vertical-align: -0.1em;
+
+      animation:
+        spin 700ms linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
       }
+    }
 
-      * { box-sizing: border-box; }
-      html, body { min-height: 100%; }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        overflow-x: hidden;
-        color: var(--white);
-        background:
-          radial-gradient(circle at 10% 22%, rgba(255, 255, 255, 0.15) 0 12%, transparent 12.2%),
-          radial-gradient(circle at 92% 78%, rgba(255, 255, 255, 0.12) 0 15%, transparent 15.2%),
-          linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 50%, var(--purple-light) 100%);
-        font-family: Outfit, Arial, sans-serif;
-      }
-
-      body::before,
-      body::after {
-        position: fixed;
-        z-index: 0;
-        width: 520px;
-        height: 520px;
-        border: 70px solid rgba(255, 255, 255, 0.09);
-        border-radius: 48% 52% 42% 58%;
-        content: "";
-        pointer-events: none;
-        transform: rotate(28deg);
-      }
-
-      body::before { top: -260px; left: -260px; }
-      body::after { right: -290px; bottom: -280px; transform: rotate(-22deg); }
-
+    @media (max-width: 860px) {
       main {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        width: min(100%, 1240px);
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: clamp(28px, 5vw, 72px);
-        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
-        align-items: center;
-        gap: clamp(18px, 4vw, 72px);
+        min-height: auto;
+
+        padding-bottom: 0;
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
       }
 
-      .content { position: relative; z-index: 2; max-width: 650px; }
+      .content {
+        margin: 0 auto;
+      }
 
       .logo-wrap {
-        display: inline-flex;
-        margin-bottom: clamp(30px, 6vh, 66px);
-        padding: 10px 14px;
-        border-radius: 16px;
-        background: #ffffff;
-        box-shadow: 0 14px 34px rgba(32, 0, 94, 0.2);
-      }
-
-      .logo { display: block; width: clamp(170px, 18vw, 225px); height: auto; }
-
-      .eyebrow {
-        margin: 0 0 14px;
-        color: #d9ff7d;
-        font-size: 0.86rem;
-        font-weight: 800;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        max-width: 620px;
-        margin: 0;
-        font-size: clamp(3.4rem, 7.8vw, 6.8rem);
-        font-weight: 700;
-        line-height: 0.92;
-        letter-spacing: -0.055em;
+        margin-bottom: 34px;
       }
 
       .lead {
-        max-width: 520px;
-        margin: 26px 0 34px;
-        color: rgba(255, 255, 255, 0.86);
-        font-size: clamp(1rem, 1.7vw, 1.22rem);
-        line-height: 1.6;
+        margin-right: auto;
+        margin-left: auto;
       }
 
-      .store-links { display: flex; flex-wrap: wrap; gap: 12px; }
-
-      .store-link {
-        display: inline-flex;
-        min-height: 58px;
-        align-items: center;
+      .store-links {
         justify-content: center;
-        padding: 0 22px;
-        border: 2px solid rgba(255, 255, 255, 0.95);
-        border-radius: 14px;
-        color: var(--white);
-        font-weight: 800;
-        text-decoration: none;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-      }
-
-      .store-link.primary { border-color: var(--kcb-green); background: var(--kcb-green); color: #142900; }
-      .store-link:hover, .store-link:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(35, 0, 100, 0.26); }
-      .store-link:focus-visible { outline: 3px solid #d9ff7d; outline-offset: 4px; }
-
-      .note { margin: 20px 0 0; color: rgba(255, 255, 255, 0.72); font-size: 0.86rem; line-height: 1.5; }
-
-      .phone-stage {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        min-width: 0;
-        place-items: center;
-      }
-
-      .phone-stage::before {
-        position: absolute;
-        z-index: -1;
-        width: min(38vw, 470px);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 0 0 44px rgba(255, 255, 255, 0.055);
-        content: "";
       }
 
       .phone-crop {
-        position: relative;
-        width: min(44vw, 540px);
-        aspect-ratio: 1941 / 2814;
-        overflow: hidden;
-        filter: drop-shadow(0 28px 30px rgba(30, 0, 74, 0.32));
-        transform: rotate(3deg);
+        width: min(80vw, 500px);
+      }
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding:
+          24px
+          18px
+          0;
       }
 
-      .phone { position: absolute; top: -63%; left: -2.7%; display: block; width: 106.5%; height: auto; }
+      h1 {
+        font-size:
+          clamp(
+            3rem,
+            16vw,
+            4.7rem
+          );
+      }
 
+      .store-links {
+        display: grid;
+      }
+
+      .store-link {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .store-link,
       .redirecting .lead::after {
-        display: inline-block;
-        width: 0.9em;
-        height: 0.9em;
-        margin-left: 0.55em;
-        border: 2px solid rgba(255, 255, 255, 0.32);
-        border-top-color: #d9ff7d;
-        border-radius: 50%;
-        content: "";
-        vertical-align: -0.1em;
-        animation: spin 700ms linear infinite;
+        transition: none;
+        animation: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+
+      const destinations = {
+
+        android:
+          "https://play.google.com/store/apps/details?id=com.kcb.mobilebanking.bi.android",
+
+        ios:
+          "https://apps.apple.com/co/app/new-kcb-mobile/id6738310699?l=en-GB"
+
+      };
+
+      const userAgent =
+        navigator.userAgent ||
+        navigator.vendor ||
+        "";
+
+      const isAndroid =
+        /android/i.test(userAgent);
+
+      const isIOS =
+        /iPad|iPhone|iPod/i.test(userAgent) ||
+        (
+          navigator.platform === "MacIntel" &&
+          navigator.maxTouchPoints > 1
+        );
+
+      if (isAndroid || isIOS) {
+
+        document.documentElement
+          .classList
+          .add("redirecting");
+
+        window.location.replace(
+          isAndroid
+            ? destinations.android
+            : destinations.ios
+        );
+
       }
 
-      @keyframes spin { to { transform: rotate(360deg); } }
+    })();
+  </script>
+</head>
 
-      @media (max-width: 860px) {
-        main { min-height: auto; padding-bottom: 0; grid-template-columns: 1fr; text-align: center; }
-        .content { margin: 0 auto; }
-        .logo-wrap { margin-bottom: 34px; }
-        .lead { margin-right: auto; margin-left: auto; }
-        .store-links { justify-content: center; }
-        .phone-crop { width: min(80vw, 500px); }
-      }
+<body>
 
-      @media (max-width: 520px) {
-        main { padding: 24px 18px 0; }
-        h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
-        .store-links { display: grid; }
-        .store-link { width: 100%; }
-      }
+  <main aria-labelledby="page-title">
 
-      @media (prefers-reduced-motion: reduce) {
-        .store-link, .redirecting .lead::after { transition: none; animation: none; }
-      }
-    </style>
-    <script>
-      (() => {
-        const destinations = {
-          android: "https://play.google.com/store/apps/details?id=com.kcb.mobilebanking.bi.android",
-          ios: "https://apps.apple.com/co/app/new-kcb-mobile/id6738310699?l=en-GB"
-        };
+    <section class="content">
 
-        const userAgent = navigator.userAgent || navigator.vendor || "";
-        const isAndroid = /android/i.test(userAgent);
-        const isIOS = /iPad|iPhone|iPod/i.test(userAgent)
-          || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-        if (isAndroid || isIOS) {
-          document.documentElement.classList.add("redirecting");
-          window.location.replace(isAndroid ? destinations.android : destinations.ios);
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <main aria-labelledby="page-title">
-      <section class="content">
-        <div class="logo-wrap">
-          <img class="logo" src="kcb-mobile-logo.png" alt="KCB Mobile App">
-        </div>
-
-        <p class="eyebrow">The new KCB Mobile</p>
-        <h1 id="page-title">Your bank.<br>In your hands.</h1>
-        <p class="lead">Download KCB Mobile and bank wherever life takes you.</p>
-
-        <div class="store-links">
-          <a class="store-link primary" href="https://play.google.com/store/apps/details?id=com.kcb.mobilebanking.bi.android">Get it on Google Play</a>
-          <a class="store-link" href="https://apps.apple.com/co/app/new-kcb-mobile/id6738310699?l=en-GB">Download on the App Store</a>
-        </div>
-
-        <p class="note"> </p>
-
-        <noscript>
-          <p class="note">Automatic device detection requires JavaScript. Please use one of the download links above.</p>
-        </noscript>
-      </section>
-
-      <div class="phone-stage" aria-hidden="true">
-        <div class="phone-crop">
-          <img class="phone" src="phone.png" alt="">
-        </div>
+      <div class="logo-wrap">
+        <img
+          class="logo"
+          src="kcb-mobile-logo.png"
+          alt="KCB Mobile App"
+        >
       </div>
-    </main>
-  </body>
+
+      <p class="eyebrow">
+        The new KCB Mobile
+      </p>
+
+      <h1 id="page-title">
+        Your bank.<br>
+        In your hands.
+      </h1>
+
+      <p class="lead">
+        Download KCB Mobile and bank wherever life takes you.
+      </p>
+
+      <div class="store-links">
+
+        <a
+          class="store-link primary"
+          href="https://play.google.com/store/apps/details?id=com.kcb.mobilebanking.bi.android"
+        >
+          Get it on Google Play
+        </a>
+
+        <a
+          class="store-link"
+          href="https://apps.apple.com/co/app/new-kcb-mobile/id6738310699?l=en-GB"
+        >
+          Download on the App Store
+        </a>
+
+      </div>
+
+      <p class="note"></p>
+
+      <noscript>
+        <p class="note">
+          Automatic device detection requires JavaScript.
+          Please use one of the download links above.
+        </p>
+      </noscript>
+
+    </section>
+
+    <div
+      class="phone-stage"
+      aria-hidden="true"
+    >
+
+      <div class="phone-crop">
+
+        <img
+          class="phone"
+          src="phone.png"
+          alt=""
+        >
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
 </html>
