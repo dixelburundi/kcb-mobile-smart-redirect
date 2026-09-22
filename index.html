@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#5d00ff">
-  <meta name="robots" content="noindex">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#7417ff"
+  >
+
+  <meta
+    name="robots"
+    content="noindex"
+  >
 
   <title>Download KCB Mobile</title>
 
@@ -28,17 +40,20 @@
 
     html,
     body {
+      width: 100%;
       min-height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       min-height: 100vh;
       margin: 0;
+
       overflow-x: hidden;
 
       color: var(--white);
 
-      /* Clean gradient only — no background shapes */
       background: linear-gradient(
         135deg,
         var(--purple-deep) 0%,
@@ -46,11 +61,13 @@
         var(--purple-light) 100%
       );
 
-      font-family: Outfit, Arial, sans-serif;
+      font-family:
+        Outfit,
+        Arial,
+        sans-serif;
     }
 
     main {
-      position: relative;
       display: grid;
 
       width: min(100%, 1240px);
@@ -58,26 +75,49 @@
 
       margin: 0 auto;
 
-      padding: clamp(28px, 5vw, 72px);
+      padding: clamp(
+        28px,
+        5vw,
+        72px
+      );
 
       grid-template-columns:
         minmax(0, 1fr)
-        minmax(360px, 0.9fr);
+        minmax(320px, 0.9fr);
 
       align-items: center;
 
-      gap: clamp(18px, 4vw, 72px);
+      gap: clamp(
+        24px,
+        5vw,
+        72px
+      );
     }
+
+    /* =========================
+       LEFT CONTENT
+    ========================= */
 
     .content {
       position: relative;
+
+      z-index: 2;
+
+      width: 100%;
       max-width: 650px;
     }
 
     .logo-wrap {
       display: inline-flex;
 
-      margin-bottom: clamp(30px, 6vh, 66px);
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: clamp(
+        30px,
+        6vh,
+        66px
+      );
 
       padding: 10px 14px;
 
@@ -86,22 +126,34 @@
       background: #ffffff;
 
       box-shadow:
-        0 14px 34px rgba(32, 0, 94, 0.2);
+        0 14px 34px
+        rgba(32, 0, 94, 0.2);
     }
 
     .logo {
       display: block;
 
-      width: clamp(170px, 18vw, 225px);
+      width: clamp(
+        170px,
+        18vw,
+        225px
+      );
+
+      max-width: 100%;
+
       height: auto;
     }
 
     .eyebrow {
-      margin: 0 0 14px;
+      margin:
+        0
+        0
+        14px;
 
       color: #d9ff7d;
 
       font-size: 0.86rem;
+
       font-weight: 800;
 
       letter-spacing: 0.15em;
@@ -114,7 +166,11 @@
 
       margin: 0;
 
-      font-size: clamp(3.4rem, 7.8vw, 6.8rem);
+      font-size: clamp(
+        3.4rem,
+        7.8vw,
+        6.8rem
+      );
 
       font-weight: 700;
 
@@ -126,17 +182,35 @@
     .lead {
       max-width: 520px;
 
-      margin: 26px 0 34px;
+      margin:
+        26px
+        0
+        34px;
 
-      color: rgba(255, 255, 255, 0.86);
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.86
+        );
 
-      font-size: clamp(1rem, 1.7vw, 1.22rem);
+      font-size: clamp(
+        1rem,
+        1.7vw,
+        1.22rem
+      );
 
       line-height: 1.6;
     }
 
+    /* =========================
+       STORE BUTTONS
+    ========================= */
+
     .store-links {
       display: flex;
+
       flex-wrap: wrap;
 
       gap: 12px;
@@ -150,9 +224,20 @@
       align-items: center;
       justify-content: center;
 
-      padding: 0 22px;
+      padding:
+        0
+        22px;
 
-      border: 2px solid rgba(255, 255, 255, 0.95);
+      border:
+        2px
+        solid
+        rgba(
+          255,
+          255,
+          255,
+          0.95
+        );
+
       border-radius: 14px;
 
       color: var(--white);
@@ -176,66 +261,116 @@
 
     .store-link:hover,
     .store-link:focus-visible {
-      transform: translateY(-3px);
+      transform:
+        translateY(-3px);
 
       box-shadow:
-        0 14px 28px rgba(35, 0, 100, 0.26);
+        0
+        14px
+        28px
+        rgba(
+          35,
+          0,
+          100,
+          0.26
+        );
     }
 
     .store-link:focus-visible {
-      outline: 3px solid #d9ff7d;
+      outline:
+        3px
+        solid
+        #d9ff7d;
 
       outline-offset: 4px;
     }
 
     .note {
-      margin: 20px 0 0;
+      margin:
+        20px
+        0
+        0;
 
-      color: rgba(255, 255, 255, 0.72);
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.72
+        );
 
       font-size: 0.86rem;
 
       line-height: 1.5;
     }
 
+    /* =========================
+       PHONE
+    ========================= */
+
     .phone-stage {
       position: relative;
 
-      display: grid;
+      z-index: 1;
+
+      display: flex;
+
+      width: 100%;
+
+      align-items: center;
+      justify-content: center;
 
       min-width: 0;
-
-      place-items: center;
     }
 
     .phone-crop {
       position: relative;
 
-      width: min(44vw, 540px);
+      width: min(
+        44vw,
+        540px
+      );
 
-      aspect-ratio: 1941 / 2814;
+      max-width: 100%;
 
-      overflow: hidden;
+      overflow: visible;
 
       filter:
         drop-shadow(
-          0 28px 30px rgba(30, 0, 74, 0.32)
+          0
+          28px
+          30px
+          rgba(
+            30,
+            0,
+            74,
+            0.32
+          )
         );
 
-      transform: rotate(3deg);
+      transform:
+        rotate(3deg);
+
+      transform-origin: center;
     }
 
     .phone {
-      position: absolute;
-
-      top: -63%;
-      left: -2.7%;
+      position: relative;
 
       display: block;
 
-      width: 106.5%;
+      width: 100%;
+
+      max-width: 100%;
+
       height: auto;
+
+      margin: 0 auto;
     }
+
+    /* =========================
+       REDIRECT LOADER
+    ========================= */
 
     .redirecting .lead::after {
       display: inline-block;
@@ -246,7 +381,14 @@
       margin-left: 0.55em;
 
       border:
-        2px solid rgba(255, 255, 255, 0.32);
+        2px
+        solid
+        rgba(
+          255,
+          255,
+          255,
+          0.32
+        );
 
       border-top-color: #d9ff7d;
 
@@ -257,20 +399,33 @@
       vertical-align: -0.1em;
 
       animation:
-        spin 700ms linear infinite;
+        spin
+        700ms
+        linear
+        infinite;
     }
 
     @keyframes spin {
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
 
-    @media (max-width: 860px) {
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (
+      max-width: 860px
+    ) {
       main {
         min-height: auto;
 
-        padding-bottom: 0;
+        padding:
+          38px
+          28px
+          0;
 
         grid-template-columns: 1fr;
 
@@ -278,7 +433,9 @@
       }
 
       .content {
-        margin: 0 auto;
+        margin:
+          0
+          auto;
       }
 
       .logo-wrap {
@@ -287,6 +444,7 @@
 
       .lead {
         margin-right: auto;
+
         margin-left: auto;
       }
 
@@ -294,41 +452,95 @@
         justify-content: center;
       }
 
+      .phone-stage {
+        margin-top: 24px;
+      }
+
       .phone-crop {
-        width: min(80vw, 500px);
+        width: min(
+          78vw,
+          500px
+        );
+
+        transform:
+          rotate(2deg);
       }
     }
 
-    @media (max-width: 520px) {
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (
+      max-width: 520px
+    ) {
       main {
         padding:
-          24px
+          28px
           18px
           0;
       }
 
+      .logo-wrap {
+        margin-bottom: 26px;
+      }
+
+      .logo {
+        width: 165px;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+      }
+
       h1 {
-        font-size:
-          clamp(
-            3rem,
-            16vw,
-            4.7rem
-          );
+        font-size: clamp(
+          3rem,
+          16vw,
+          4.7rem
+        );
+      }
+
+      .lead {
+        margin-top: 22px;
+
+        margin-bottom: 28px;
+
+        font-size: 1rem;
       }
 
       .store-links {
         display: grid;
+
+        width: 100%;
       }
 
       .store-link {
         width: 100%;
       }
+
+      .phone-stage {
+        margin-top: 28px;
+      }
+
+      .phone-crop {
+        width: min(
+          92vw,
+          460px
+        );
+
+        transform:
+          rotate(0deg);
+      }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media (
+      prefers-reduced-motion: reduce
+    ) {
       .store-link,
       .redirecting .lead::after {
         transition: none;
+
         animation: none;
       }
     }
@@ -353,20 +565,31 @@
         "";
 
       const isAndroid =
-        /android/i.test(userAgent);
+        /android/i.test(
+          userAgent
+        );
 
       const isIOS =
-        /iPad|iPhone|iPod/i.test(userAgent) ||
+        /iPad|iPhone|iPod/i.test(
+          userAgent
+        ) ||
         (
-          navigator.platform === "MacIntel" &&
+          navigator.platform ===
+          "MacIntel" &&
           navigator.maxTouchPoints > 1
         );
 
-      if (isAndroid || isIOS) {
+      if (
+        isAndroid ||
+        isIOS
+      ) {
 
-        document.documentElement
+        document
+          .documentElement
           .classList
-          .add("redirecting");
+          .add(
+            "redirecting"
+          );
 
         window.location.replace(
           isAndroid
@@ -378,40 +601,58 @@
 
     })();
   </script>
+
 </head>
 
 <body>
 
-  <main aria-labelledby="page-title">
+  <main
+    aria-labelledby="page-title"
+  >
 
-    <section class="content">
+    <section
+      class="content"
+    >
 
-      <div class="logo-wrap">
+      <div
+        class="logo-wrap"
+      >
+
         <img
           class="logo"
           src="kcb-mobile-logo.png"
           alt="KCB Mobile App"
         >
+
       </div>
 
-      <p class="eyebrow">
+      <p
+        class="eyebrow"
+      >
         The new KCB Mobile
       </p>
 
-      <h1 id="page-title">
+      <h1
+        id="page-title"
+      >
         Your bank.<br>
         In your hands.
       </h1>
 
-      <p class="lead">
+      <p
+        class="lead"
+      >
         Download KCB Mobile and bank wherever life takes you.
       </p>
 
-      <div class="store-links">
+      <div
+        class="store-links"
+      >
 
         <a
           class="store-link primary"
           href="https://play.google.com/store/apps/details?id=com.kcb.mobilebanking.bi.android"
+          rel="noopener"
         >
           Get it on Google Play
         </a>
@@ -419,19 +660,26 @@
         <a
           class="store-link"
           href="https://apps.apple.com/co/app/new-kcb-mobile/id6738310699?l=en-GB"
+          rel="noopener"
         >
           Download on the App Store
         </a>
 
       </div>
 
-      <p class="note"></p>
+      <p
+        class="note"
+      ></p>
 
       <noscript>
-        <p class="note">
+
+        <p
+          class="note"
+        >
           Automatic device detection requires JavaScript.
           Please use one of the download links above.
         </p>
+
       </noscript>
 
     </section>
@@ -441,7 +689,9 @@
       aria-hidden="true"
     >
 
-      <div class="phone-crop">
+      <div
+        class="phone-crop"
+      >
 
         <img
           class="phone"
